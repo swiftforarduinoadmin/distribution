@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------------
 //
-// Blink.swift4a
+// Blink.swift4a (ver 2.0)
 // Swift For Arduino 3.0+
 //
 // Created by Swift For Arduino on 03/03/2020.
