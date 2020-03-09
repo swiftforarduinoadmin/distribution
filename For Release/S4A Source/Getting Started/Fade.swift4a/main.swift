@@ -70,7 +70,10 @@ pinMode(pin: ledPin, mode: OUTPUT)
 // Main Loop
 //------------------------------------------------------------------------------
 
-while(true) {
+// Be sure we won't divide by zero
+let validSetup: Bool = (fadesPerSecond != 0)
+
+while(validSetup) {
 
     // Turn the LED on at a current brightness level
     analogWrite(pin: ledPin, value: UInt8(truncatingBitPattern: currentBrightness))

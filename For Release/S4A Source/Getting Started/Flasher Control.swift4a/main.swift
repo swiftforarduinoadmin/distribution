@@ -68,7 +68,10 @@ delay(milliseconds: 250)
 // Main Loop
 //------------------------------------------------------------------------------
 
-while(true) {
+// Be sure we won't divide by zero
+let validSetup: Bool = (readsPerSecond != 0)
+
+while(validSetup) {
 
     // Read analog
     let analogValue: UInt16 = analogReadSync(pin: analogPin)

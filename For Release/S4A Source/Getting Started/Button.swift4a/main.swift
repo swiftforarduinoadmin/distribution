@@ -58,7 +58,10 @@ digitalWrite(pin: buttonPin, value: HIGH)
 // Main Loop
 //------------------------------------------------------------------------------
 
-while(true) {
+// Be sure we won't divide by zero
+let validSetup: Bool = (readsPerSecond != 0)
+
+while(validSetup) {
 
     // Read the button state
     if digitalRead(pin: buttonPin) {
