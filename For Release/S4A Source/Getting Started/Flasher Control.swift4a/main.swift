@@ -81,11 +81,11 @@ while(validSetup) {
     print(unsignedInt: analogValue)
     print(message: Blank)
 
-    // Turn LED on, wait based on sensor value
+    // Turn LED on, wait based on analog value
     digitalWrite(pin: ledPin, value: HIGH)
     delay(milliseconds: analogValue)
 
-    // Turn LED off, wait based on sensor value
+    // Turn LED off, wait based on analog value
     digitalWrite(pin: ledPin, value: LOW)
     delay(milliseconds: analogValue)
 
