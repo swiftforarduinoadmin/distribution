@@ -52,7 +52,7 @@ typealias IntegerLiteralType = UInt8
 //------------------------------------------------------------------------------
 
 // Properties
-let ledPin: Pin = 3
+let ledPin: Pin = D3
 
 let fadesPerSecond: Milliseconds = 60 // Change brightness 60 times per second
 let fadeOnStep: Int16 = 7

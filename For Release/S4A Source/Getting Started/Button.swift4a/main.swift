@@ -43,8 +43,8 @@ typealias IntegerLiteralType = UInt8
 //------------------------------------------------------------------------------
 
 // Properties
-let buttonPin: Pin = 2
-let ledPin: Pin = 13
+let buttonPin: Pin = D2
+let ledPin: Pin = D13
 
 let readsPerSecond: Milliseconds = 10 // Read button 10 times per second
 
@@ -52,7 +52,7 @@ let readsPerSecond: Milliseconds = 10 // Read button 10 times per second
 pinMode(pin: ledPin, mode: OUTPUT)
 
 // Enable internal pullup resistors for button
-digitalWrite(pin: buttonPin, value: HIGH) 
+digitalWrite(pin: buttonPin, value: HIGH)
 
 //------------------------------------------------------------------------------
 // Main Loop
@@ -62,7 +62,7 @@ while(true) {
 
     // Read the button state
     if digitalRead(pin: buttonPin) {
-        
+
         // buttonPin is HIGH, so button is not pressed, turn off the LED
         digitalWrite(pin: ledPin, value: LOW)
     }
@@ -70,7 +70,7 @@ while(true) {
         // buttonPin is LOW, so button is pressed, turn on the LED
         digitalWrite(pin: ledPin, value: HIGH)
     }
-    
+
     // Control the number of reads per second
     delay(milliseconds: 1000 / readsPerSecond)
 }

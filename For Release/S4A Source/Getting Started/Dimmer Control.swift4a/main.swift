@@ -56,8 +56,8 @@ typealias IntegerLiteralType = UInt8
 //------------------------------------------------------------------------------
 
 // Properties
-let analogPin: Pin = 0
-let ledPin: Pin = 3
+let analogPin: Pin = A0
+let ledPin: Pin = D3
 
 let readsPerSecond: Milliseconds = 10 // Read analog 10 times per second
 

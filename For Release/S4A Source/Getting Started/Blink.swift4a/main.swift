@@ -41,8 +41,7 @@ typealias IntegerLiteralType = UInt8
 //------------------------------------------------------------------------------
 
 // Properties
-let ledPin: Pin = 13
-
+let ledPin: Pin = D13
 let ledOnTime: Milliseconds = 1000
 let ledOffTime: Milliseconds = 500
 

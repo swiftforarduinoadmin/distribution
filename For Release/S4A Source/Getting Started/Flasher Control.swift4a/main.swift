@@ -21,7 +21,7 @@
     Hardware Configuration (see Flasher Control.png)
 
     - Analog device (sensor or potentiometer): Attached to analog pin A0
-    - LED: Built in Arduino LED (pin 13)
+    - LED: Built in Arduino LED (pin D13)
     ____________________________________________________________________________
 
     Notes
@@ -29,8 +29,8 @@
     1. analogPin must support analog to digital conversion (usually A0 - A5).
     See: https://www.arduino.cc/en/Reference/AnalogRead
 
-    2. The string that is printed to serial ("Reading:") is in the Strings tab at
-    the top of the window.
+    2. The string that is printed to serial ("Reading:") is in the Strings tab
+    at the top of the window.
     ____________________________________________________________________________
 
     Experiments
@@ -52,8 +52,8 @@ typealias IntegerLiteralType = UInt8
 //------------------------------------------------------------------------------
 
 // Properties
-let analogPin: Pin = 0
-let ledPin: Pin = 13
+let analogPin: Pin = A0
+let ledPin: Pin = D13
 
 let readsPerSecond: Milliseconds = 10 // Read analog 10 times per second
 
@@ -69,9 +69,9 @@ delay(milliseconds: 250)
 //------------------------------------------------------------------------------
 
 while(true) {
-    
+
     // Read analog
-    let analogValue: UInt16 = slowAnalogRead(pin: analogPin)
+    let analogValue: UInt16 = analogReadSync(pin: analogPin)
 
     // Print value to serial (see string tab)
     print(message: Reading, addNewline: false)
