@@ -20,8 +20,8 @@
 
     Hardware Configuration (see Dimmer Control.png)
 
-    - Analog device (sensor or potentiometer): Attached to analog pin A0
-    - LED: Attached to pin D3
+    - A0: Analog device (sensor or potentiometer)
+    - D3: LED
     ____________________________________________________________________________
 
     Notes

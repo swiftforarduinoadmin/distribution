@@ -19,8 +19,8 @@
 
     Hardware Configuration (see Button.png)
 
-    - Pushbutton: Attached to pin D2
-    - LED: Built in Arduino LED (pin D13)
+    - D2: Pushbutton
+    - D13: Built in Arduino LED
     ____________________________________________________________________________
 
     Notes
@@ -51,7 +51,7 @@ let readsPerSecond: Milliseconds = 10 // Read button 10 times per second
 // Configure pins (pins are INPUT by default)
 pinMode(pin: ledPin, mode: OUTPUT)
 
-// Enable internal pullup resistors for button
+// Enable internal pullup resistors
 digitalWrite(pin: buttonPin, value: HIGH)
 
 //------------------------------------------------------------------------------

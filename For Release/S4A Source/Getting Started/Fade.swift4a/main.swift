@@ -19,7 +19,7 @@
 
     Hardware Configuration (see Fade.png)
 
-    - LED: Attached to pin D3
+    - D3: LED
     ____________________________________________________________________________
 
     Notes

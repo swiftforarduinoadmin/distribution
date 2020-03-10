@@ -19,7 +19,7 @@
 
     Hardware Configuration (see Blink.png)
 
-    - LED: Built in Arduino LED (pin D13)
+    - D13: Built in Arduino LED
     ____________________________________________________________________________
 
     Experiments

@@ -20,8 +20,8 @@
 
     Hardware Configuration (see Flasher Control.png)
 
-    - Analog device (sensor or potentiometer): Attached to analog pin A0
-    - LED: Built in Arduino LED (pin D13)
+    - A0: Analog device (sensor or potentiometer)
+    - D13: Built in Arduino LED
     ____________________________________________________________________________
 
     Notes
@@ -29,8 +29,8 @@
     1. analogPin must support analog to digital conversion (usually A0 - A5).
     See: https://www.arduino.cc/en/Reference/AnalogRead
 
-    2. The string that is printed to serial ("Reading:") is in the Strings tab
-    at the top of the window.
+    3. The messages that are printed to serial are in the Strings tab at the top 
+    of the window.
     ____________________________________________________________________________
 
     Experiments
