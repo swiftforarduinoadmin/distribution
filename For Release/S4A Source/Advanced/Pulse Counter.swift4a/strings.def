@@ -13,5 +13,5 @@
 //
 //------------------------------------------------------------------------------
 
+PROGMEM_STRING(Intro, "\nCPU Fan Monitor")
 PROGMEM_STRING(RPM, " RPM")
-PROGMEM_STRING(Intro, "Fan RPM Monitor")
