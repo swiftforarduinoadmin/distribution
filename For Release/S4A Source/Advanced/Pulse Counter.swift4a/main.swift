@@ -93,7 +93,7 @@ setupTimerIntervalInterruptCallback(milliseconds: isrInterval) {
 }
 
 // Enable serial port and let it stabilize
-SetupSerial(baudRate: 9600)
+SetupSerial()
 delay(milliseconds: 250)
 print(message: Intro)
 

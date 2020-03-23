@@ -67,7 +67,7 @@ var currentAnalogValue: UInt8 = 0
 pinMode(pin: ledPin, mode: OUTPUT)
 
 // Enable serial port and let it stabilize before main loop
-SetupSerial(baudRate: 9600)
+SetupSerial()
 delay(milliseconds: 250)
 
 //------------------------------------------------------------------------------
