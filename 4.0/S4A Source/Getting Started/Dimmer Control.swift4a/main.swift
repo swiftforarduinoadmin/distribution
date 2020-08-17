@@ -83,11 +83,11 @@ while(validSetup) {
     analogReadAsync(pin: analogPin) { value in
 
         // Value is a 10 bit value (0-1023), convert to an 8 bit value (0-255) for LED
-        currentAnalogValue = UInt8(truncatingBitPattern: value / 4)
+        currentAnalogValue = UInt8(value / 4)
 
         // Light the LED with brightness and print value to serial
         analogWrite(pin: ledPin, value: currentAnalogValue)
-        print(byte: currentAnalogValue)
+        print(currentAnalogValue)
     }
 
     // Control the number of reads per second

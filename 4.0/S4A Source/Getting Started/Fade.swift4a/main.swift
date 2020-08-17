@@ -76,10 +76,10 @@ let validSetup: Bool = (fadesPerSecond != 0)
 while(validSetup) {
 
     // Turn the LED on at a current brightness level
-    analogWrite(pin: ledPin, value: UInt8(truncatingBitPattern: currentBrightness))
+    analogWrite(pin: ledPin, value: UInt8(currentBrightness))
 
     // Calculate next brightness level
-    currentBrightness = currentBrightness &+ currentBrightnessOffset
+    currentBrightness = currentBrightness + currentBrightnessOffset
 
     // Check if at the min brightness
     if (currentBrightness <= minBrightness) {

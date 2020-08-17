@@ -29,7 +29,7 @@
     1. analogPin must support analog to digital conversion (usually A0 - A5).
     See: https://www.arduino.cc/en/Reference/AnalogRead
 
-    3. The messages that are printed to serial are in the Strings tab at the top 
+    3. The messages that are printed to serial are in the Strings tab at the top
     of the window.
     ____________________________________________________________________________
 

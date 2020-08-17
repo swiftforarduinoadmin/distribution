@@ -67,28 +67,35 @@ let isrInterval: Milliseconds = UInt16(1000 / readsPerSecond)
 let readsPerMinute: UInt16 = UInt16(60) * readsPerSecond
 let pulsesToRPM: UInt16 = readsPerMinute / pulsesPerRotation
 
+
+struct ISRSharedState {
+    // Runtime properties that can be updated by the ISR
+    // note that we handle these slightly differently
+    @Volatile var shouldCalculateRPMs: Bool = false
+    @Volatile var capturedPulseCount: UInt8 = 0
+}
+
 // Runtime properties
-var shouldCalculateRPMs: Bool = false
-var capturedPulseCount: UInt8 = 0
 var lastPrintedPulseCount: UInt8 = 255
+var periodicReadingState = ISRSharedState()
 
 // Configure Timer0 to count voltage level changes (HIGH to LOW)
 timer0SetAsCounter(edgeType: FALLING_EDGE)
 
 // Setup periodic reading of the timer pulse counter
-setupTimerIntervalInterruptCallback(milliseconds: isrInterval) {
+executeAsync(after: isrInterval, repeats: true) {
 
     // *** This is an interrupt service routine (ISR), code must be fast ***
 
     // If we are not already calculating RPMs
-    if !shouldCalculateRPMs {
+    if !periodicReadingState.shouldCalculateRPMs {
 
         // Capture current pulse count and reset counter
-        capturedPulseCount = currentTimer0Value()
+        periodicReadingState.capturedPulseCount = currentTimer0Value()
         timer0CounterReset()
 
         // Let the main loop know that it is time to calculate RPMs
-        shouldCalculateRPMs = true
+        periodicReadingState.shouldCalculateRPMs = true
     }
 }
 
@@ -104,19 +111,19 @@ print(message: Intro)
 while(true) {
 
     // If it's time to calculate AND the current pulse count is different than last printed
-    if shouldCalculateRPMs,
-        capturedPulseCount != lastPrintedPulseCount {
+    if periodicReadingState.shouldCalculateRPMs,
+        periodicReadingState.capturedPulseCount != lastPrintedPulseCount {
 
         // Calculate RPMs and print
-        let rpm: UInt16 = UInt16(capturedPulseCount) &* pulsesToRPM
+        let rpm: UInt16 = UInt16(periodicReadingState.capturedPulseCount) &* pulsesToRPM
         print(unsignedInt: rpm, addNewline: false)
         print(message: RPM)
 
         // Record that we printed this pulse count so we don't print the same value endlessly
-        lastPrintedPulseCount = capturedPulseCount
+        lastPrintedPulseCount = periodicReadingState.capturedPulseCount
 
         // Let ISR know we are done
-        shouldCalculateRPMs = false
+        periodicReadingState.shouldCalculateRPMs = false
     }
 
     // We need a slight delay because our while() loop is too fast
