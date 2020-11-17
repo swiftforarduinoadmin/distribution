@@ -102,7 +102,7 @@ executeAsync(after: isrInterval, repeats: true) {
 // Enable serial port and let it stabilize
 SetupSerial()
 delay(milliseconds: 250)
-print(message: Intro)
+print(message: "\nCPU Fan Monitor")
 
 //------------------------------------------------------------------------------
 // Main Loop
@@ -117,7 +117,7 @@ while(true) {
         // Calculate RPMs and print
         let rpm: UInt16 = UInt16(periodicReadingState.capturedPulseCount) &* pulsesToRPM
         print(unsignedInt: rpm, addNewline: false)
-        print(message: RPM)
+        print(message: " RPM")
 
         // Record that we printed this pulse count so we don't print the same value endlessly
         lastPrintedPulseCount = periodicReadingState.capturedPulseCount

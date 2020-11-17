@@ -77,9 +77,9 @@ while(validSetup) {
     let analogValue: UInt16 = analogReadSync(pin: analogPin)
 
     // Print value to serial (see string tab)
-    print(message: Reading, addNewline: false)
+    print(message: "Reading: ", addNewline: false)
     print(unsignedInt: analogValue)
-    print(message: Blank)
+    print(message: "\n")
 
     // Turn LED on, wait based on analog value
     digitalWrite(pin: ledPin, value: HIGH)

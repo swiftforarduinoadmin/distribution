@@ -46,10 +46,10 @@ let ledOnTime: Milliseconds = 1000
 let ledOffTime: Milliseconds = 500
 
 // Configure pins (pins are INPUT by default)
-pinMode(pin: ledPin, mode: OUTPUT)
+    pinMode(pin: ledPin, mode: OUTPUT)
 
-SetupSerial()
-print("Hello, and welcome to Swift for Arduino!")
+//SetupSerial()
+//print("Hello, and welcome to Swift for Arduino!")
 
 //------------------------------------------------------------------------------
 // Main Loop
